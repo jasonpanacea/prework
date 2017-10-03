@@ -33,16 +33,28 @@ python manage.py migrate
 # 功能列表 #
 
 * 增加一个待办事项
+
 ![c](https://github.com/jasonpanacea/prework/blob/master/gifs/create.gif)
+
 * 删除一个待办事项
+
 ![d](https://github.com/jasonpanacea/prework/blob/master/gifs/delete.gif)
+
 * 标记一个待办事项为已完成
+
 ![f](https://github.com/jasonpanacea/prework/blob/master/gifs/finish.gif)
 * 编辑一个待办事项的具体内容
+
 ![u](https://github.com/jasonpanacea/prework/blob/master/gifs/update.gif)
+
 * 翻页
+
 ![paging](https://github.com/jasonpanacea/prework/blob/master/gifs/paging.gif)
+
 * 搜索
+
 ![search](https://github.com/jasonpanacea/prework/blob/master/gifs/search.gif)
+
 * 排序
+
 ![sorting](https://github.com/jasonpanacea/prework/blob/master/gifs/sort.gif)
