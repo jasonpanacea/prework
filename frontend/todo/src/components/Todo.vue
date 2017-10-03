@@ -89,8 +89,8 @@
         tableData: [],
         rawlist: new Array(),
         cur_page: 1,
-        page_sizes: [10, 20, 50],
-        page_size: 20,
+        page_sizes: [5, 10, 20],
+        page_size: 5,
         modifyFormVisible: false,
         select_word: '',
       }
