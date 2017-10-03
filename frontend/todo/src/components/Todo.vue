@@ -13,7 +13,7 @@
           </el-table-column>
           <el-table-column prop="expire_date" label="到期时间" width="180" sortable>
           </el-table-column>
-          <el-table-column prop="created_date" label="创建时间" width="180" sortable>
+          <el-table-column prop="created_at" label="创建时间" width="180" sortable>
           </el-table-column>
           <el-table-column prop="status" :formatter="statusFormat" label="状态" width="120" sortable>
           </el-table-column>
@@ -54,7 +54,8 @@
 
           </el-form-item>
           <el-form-item label="到期时间">
-            <el-date-picker type="date" @change="date_change" placeholder="选择日期" v-model="modifyForm.expire_date"
+            <el-date-picker type="date" @change="date_change" :picker-options="pickerOptions0" placeholder="选择日期"
+                            v-model="modifyForm.expire_date"
                             style="width: 100%;"></el-date-picker>
           </el-form-item>
         </el-row>
@@ -132,7 +133,7 @@
         this.modifyForm = {
           content: '',
           priority: 1,
-          status:0,
+          status: 0,
           expire_date: ''
         }
         this.isdisabled = false
@@ -156,7 +157,7 @@
           expire_date: row.expire_date
         }
         let self = this
-        self.$axios.patch(urllist.Items.editurl + row.id + "/", {status:1}).then(function (response) {
+        self.$axios.patch(urllist.Items.editurl + row.id + "/", {status: 1}).then(function (response) {
           console.log(response);
           value.id = row.id
           self.rawlist.splice(index, 1, value)
@@ -232,12 +233,20 @@
           console.log(res);
           for (let i = 0; i < res.data.length; i++) {
             let value = res.data[i];
+            //process expired data
+            if (self.$moment(value.expire_date).isBefore(self.$moment().format('YYYY-MM-DD'))) {
+              value.status = 2
+              self.$axios.patch(urllist.Items.editurl + value.id + "/", {status: 2}).then(function (response) {
+                console.log(response);
+              })
+            }
             self.rawlist.push({
               id: value.id,
               content: value.content,
               priority: value.priority,
               status: value.status,
-              expire_date: value.expire_date
+              expire_date: value.expire_date,
+              created_at: value.created_at
             });
           }
           console.log(JSON.stringify(self.rawlist));
