@@ -4,7 +4,7 @@
 * postgres
 #目录结构
 	|-- backend     //后端Django代码
-	|-- fronted     //前端Vue代码 
+	|-- frontend    //前端Vue代码 
     |-- gifs        //功能截图 
 #本地部署步骤
 ##后端
