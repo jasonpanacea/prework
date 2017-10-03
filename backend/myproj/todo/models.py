@@ -11,4 +11,4 @@ class Item(models.Model):
     status = models.IntegerField(default=0)
     priority = models.IntegerField(default=0)
     expire_date = models.DateField(blank=True)
-    created_at = models.DateField(default=timezone.now)
+    created_at = models.DateTimeField(default=timezone.now)

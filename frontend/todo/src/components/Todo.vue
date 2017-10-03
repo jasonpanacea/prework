@@ -13,7 +13,7 @@
           </el-table-column>
           <el-table-column prop="expire_date" label="到期时间" width="180" sortable>
           </el-table-column>
-          <el-table-column prop="created_at" label="创建时间" width="180" sortable>
+          <el-table-column prop="created_at" :formatter="dateFormat" label="创建时间" width="180" sortable>
           </el-table-column>
           <el-table-column prop="status" :formatter="statusFormat" label="状态" width="120" sortable>
           </el-table-column>
@@ -113,6 +113,9 @@
         }
         return row.content
       },
+      dateFormat(row, column){
+          return this.$moment(row.created_at).format('YYYY-MM-DD')
+      },
       priorityFormat(row, column) {
         if (row.priority == 0)
           return "低"
@@ -146,6 +149,7 @@
         this.modifyForm.status = row.status;
         this.modifyForm.content = row.content;
         this.modifyForm.expire_date = row.expire_date;
+        this.modifyForm.created_at = row.created_at;
         this.modifyFormVisible = true
         this.tempIndex = index
       },
@@ -154,7 +158,8 @@
           content: row.content,
           priority: row.priority,
           status: 1,
-          expire_date: row.expire_date
+          expire_date: row.expire_date,
+          created_at: row.created_at
         }
         let self = this
         self.$axios.patch(urllist.Items.editurl + row.id + "/", {status: 1}).then(function (response) {
@@ -275,7 +280,8 @@
               content: response.data.content,
               status: response.data.status,
               priority: response.data.priority,
-              expire_date: response.data.expire_date
+              expire_date: response.data.expire_date,
+              created_at: response.data.created_at,
             })
             self.modifyForm = {
               content: '',
