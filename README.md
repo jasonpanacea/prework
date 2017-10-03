@@ -32,7 +32,12 @@ python manage.py migrate
 
 # 功能列表 #
 
-* 增加一个待办事项
+* 全部事项列表(内容缩略显示，非带完成状态事项，"完成"按钮 disable)
+
+![l](https://github.com/jasonpanacea/prework/blob/master/gifs/list.png)
+
+
+* 增加一个待办事项(包括事项内容、优先级、到期时间)
 
 ![c](https://github.com/jasonpanacea/prework/blob/master/gifs/create.gif)
 
@@ -40,10 +45,10 @@ python manage.py migrate
 
 ![d](https://github.com/jasonpanacea/prework/blob/master/gifs/delete.gif)
 
-* 标记一个待办事项为已完成
+* 标记一个待办事项为已完成(完成后不能再编辑)
 
 ![f](https://github.com/jasonpanacea/prework/blob/master/gifs/finish.gif)
-* 编辑一个待办事项的具体内容
+* 编辑一个待办事项的具体内容(包括事项内容、优先级、到期时间)
 
 ![u](https://github.com/jasonpanacea/prework/blob/master/gifs/update.gif)
 
@@ -51,10 +56,10 @@ python manage.py migrate
 
 ![paging](https://github.com/jasonpanacea/prework/blob/master/gifs/paging.gif)
 
-* 搜索
+* 搜索(根据事项内容关键字搜索)
 
 ![search](https://github.com/jasonpanacea/prework/blob/master/gifs/search.gif)
 
-* 排序
+* 排序(支持对事件状态、优先级、到期时间排序)
 
 ![sorting](https://github.com/jasonpanacea/prework/blob/master/gifs/sort.gif)
